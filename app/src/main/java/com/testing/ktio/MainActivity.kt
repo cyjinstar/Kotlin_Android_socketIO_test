@@ -14,13 +14,17 @@ import java.net.*
 class MainActivity : AppCompatActivity()  {
 
     private var handler = Handler(Looper.getMainLooper())
-    private val button : Button = findViewById(R.id.button)
-    private val editText : EditText = findViewById(R.id.editText)
-    private val textView : TextView = findViewById(R.id.textView)
+    private lateinit var button : Button
+    lateinit var editText : EditText
+    lateinit var textView : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        button = findViewById(R.id.button)
+        editText = findViewById(R.id.editText)
+        textView = findViewById(R.id.textView)
 
         button.setOnClickListener {
             ClientThread().start()
